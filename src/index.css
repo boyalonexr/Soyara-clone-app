@@ -29,3 +29,18 @@
     --wc-content-bg: #fff;
     --wc-subtext: #767676;
 }
+
+.pad{
+  padding: 0.5rem 1rem;
+}
+
+.hover:hover {
+  background-color: red;
+  color: white;
+}
+
+.bg-img {
+  background-image: url(./assets/Main-img.jpg);
+  background-size: cover;
+  background-position: center;
+}

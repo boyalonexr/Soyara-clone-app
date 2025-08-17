@@ -3,6 +3,7 @@ import './App.css'
 import LoadingScreen from './Components/LoadingScreen'
 import Header from './Components/Header'
 import Navbar from './Components/Navbar'
+import Body from './Components/Body'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -15,7 +16,8 @@ function App() {
     loading ? <LoadingScreen /> :
     <>
       <Header />
-      <Navbar />
+      <Navbar/>
+      <Body />
     </>
   )
 }
