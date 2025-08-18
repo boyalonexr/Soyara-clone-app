@@ -30,6 +30,10 @@
     --wc-subtext: #767676;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .pad{
   padding: 0.5rem 1rem;
 }
