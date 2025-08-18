@@ -28,7 +28,10 @@ const Header = () => {
         </div>
 
       <AnimatePresence>
-        {activePopup === 'login' && <FormCont />}
+        {activePopup === 'login' && 
+          <FormCont 
+            setActivePopup = {setActivePopup}
+          />}
       </AnimatePresence>  
       </div>
       </div>
@@ -45,7 +48,10 @@ const Header = () => {
         </div>
 
         <AnimatePresence>
-        {activePopup === 'cart' && <CartPopup />}
+        {activePopup === 'cart' && 
+          <CartPopup 
+            setActivePopup = {setActivePopup}
+          />}
       </AnimatePresence>
       </div>
       </div>

@@ -9,8 +9,13 @@ const popupAnimation = {
   transition: { duration: 0.2, ease: 'easeInOut' },
 };
 
-export const FormCont = () => {
+export const FormCont = (props) => {
   return (
+    <>
+    <div
+      onClick={() => props.setActivePopup(false)}
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-20"></div>
+
     <motion.div
       key="login-popup"
       {...popupAnimation}
@@ -54,11 +59,16 @@ export const FormCont = () => {
         </div>
       </form>
     </motion.div>
+    </>
   );
 };
 
-export const CartPopup = () => {
+export const CartPopup = (props) => {
   return (
+    <>
+    <div
+      onClick={() => props.setActivePopup(false)}
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-20"></div>
     <motion.div
       key="cart-popup"
       {...popupAnimation}
@@ -93,5 +103,6 @@ export const CartPopup = () => {
         </div>
       </div>
     </motion.div>
+  </>
   );
 };
