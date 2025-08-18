@@ -132,7 +132,7 @@ const scrollToTop = () => {
             onClick={()=> toggleActive('color')}
             className="w-full md:w-1/4 relative flex-1">
               <select
-                className="w-full p-3 text-zinc-400 rounded bg-white appearance-none pr-10"
+                className="w-full p-3 text-sm text-zinc-600 bg-white border border-zinc-300 rounded appearance-none" 
               >
                 <option value="" disabled selected>Color</option>
                {colors.map((color)=> (
