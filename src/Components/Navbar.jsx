@@ -53,7 +53,7 @@ useEffect(() => {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 right-0 z-50 bg-white shadow-lg w-[62%] md:w-[33%] h-screen items-center text-zinc-600 capitalize divide-y divide-gray-300">
+        className="fixed top-0 right-0 z-50 bg-white shadow-lg w-[78%] md:w-[33%] h-screen items-center text-zinc-600 capitalize divide-y divide-gray-300">
           <div>
             <img className="w-3/4 p-4 mx-auto" src={logo} alt="Sayara Logo" />
           </div>
