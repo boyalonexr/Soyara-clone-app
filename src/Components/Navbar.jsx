@@ -1,5 +1,5 @@
 // components/Navbar.jsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/sayara-logo.png";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -20,8 +20,16 @@ function Navbar() {
   transition: { duration: 0.3, ease: 'easeInOut' },
 };
 
+useEffect(() => {
+  openNavBar ? document.body.style.overflow = 'hidden': document.body.style.overflow = ''
+
+  return () => {
+    document.body.style.overflow = '';
+  };
+}, [openNavBar]);
+
   return (
-    <div className=" bg-white p-2 w-11/12 mx-auto">
+    <div className="sticky top-0 w-full z-40 bg-white p-2 mx-auto shadow-md">
       <div className="flex items-center justify-between">
       <div>
         <a href="#">
@@ -38,14 +46,14 @@ function Navbar() {
     {openNavBar && <div className="flex justify-end">
        <div
         onClick={() => setOpenNavbar(false)}
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm z-30"></div>
+        className="fixed inset-0 bg-black/90 z-30"></div>
 
       <motion.ul 
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ duration: 0.3 }}
-        className="absolute top-0 right-0 z-50 bg-white shadow-lg w-3/4 h-screen items-center text-zinc-600 capitalize divide-y divide-gray-300">
+        className="fixed top-0 right-0 z-50 bg-white shadow-lg w-[62%] md:w-[33%] h-screen items-center text-zinc-600 capitalize divide-y divide-gray-300">
           <div>
             <img className="w-3/4 p-4 mx-auto" src={logo} alt="Sayara Logo" />
           </div>

@@ -1,14 +1,74 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, scale } from "framer-motion"
+import BenzImg from '../assets/mini-benz-img.jpg';
+import EngineImg from '../assets/mini-engine-img.jpg';
+import { FaArrowUp } from "react-icons/fa";
+import TireImg from '../assets/mini-tire-img.jpg';
 
 const Body = () => {
   const [ active, setActive ] = useState(false)
+  const [showButton, setShowButton] = useState(false)
+
   const brands = ['Chevrolet', 'Jeep', 'Lexus', 'Volkswagen'];
   const types = ['1 Wheel Drive', 'Coupe', 'Hatchback', 'Hybrid', 'Sedan', 'SUV', 'Wagon'];
   const colors = ['Red', 'Black', 'Silver', 'White'];
+  const engineData = [
+  {
+    img: BenzImg,
+    title: "interior parts",
+    subtitle: "low prices guarantee",
+    animation: "left",
+    id: 1,
+  },
+  {
+    img: TireImg,
+    title: "wheel rim",
+    subtitle: "power tools of next level",
+    animation: "right",
+    id: 2,
+  },
+  {
+    img: EngineImg,
+    title: "body parts",
+    subtitle: "for any vehicle",
+    animation: "left",
+    id: 3,
+  },
+];
+
+const getEngineDataAnimation = (direction) => {
+  return {
+    hidden: {
+      x: direction === "left" ? -100 : 100,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+  };
+};
 
   const toggleActive = (type)=> {
     setActive(prev => (prev === type ? false: type))
   }
+
+  useEffect(()=> {
+  const handleScroll = () => {
+    setShowButton(window.pageYOffset > 300)
+  }
+  window.addEventListener("scroll", handleScroll)
+  return ()=> window.removeEventListener("scroll", handleScroll)
+}, [])
+
+const scrollToTop = () => {
+   window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+   })
+}
+
 
   return (
     <main>
@@ -17,20 +77,20 @@ const Body = () => {
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
 
         {/* Content */}
-        <div className="relative max-w-3/4 mx-auto z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+        <div className="relative w-full max-w-screen-xl mx-auto z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
             <h1 className="text-4xl font-bold mb-4">Find parts for your vehicle</h1>
             <p className="text-xl mb-5">Over hundreds of brands and thousands of parts</p>
           
 
           {/* Dropdown inputs */}
-          <div className="flex flex-col md:flex-row mt-5 gap-4 w-full px-4">
+          <div className="flex flex-col px-4 md:flex-row mt-5 gap-4 w-[75%] md:h-[25%] md:bg-black/40  flex-wrap md:border border-white items-center shadow-2xl">
             {/* Brand */}
             <div 
-            onClick={()=> toggleActive('brand')} className="w-full relative">
+            onClick={()=> toggleActive('brand')} className="w-full md:w-1/4 relative flex-1">
               <select
-                className="w-full p-3 text-zinc-400 rounded bg-white appearance-none pr-10"
+                className="w-full p-3 text-zinc-400 rounded bg-white appearance-none pr-10 z-10 selected"
               >
-                <option value="" disabled selected>Brand</option>
+                <option value="" selected disabled>Brand</option>
                 {brands.map((brand) => (
                   <option 
                   key={brand} 
@@ -48,7 +108,7 @@ const Body = () => {
             {/* Type */}
             <div
             onClick={()=> toggleActive('type')}
-            className="w-full relative">
+            className="w-full md:w-1/4 relative flex-1">
               <select
                 className="w-full p-3 text-zinc-400 rounded bg-white appearance-none "
               >
@@ -69,7 +129,7 @@ const Body = () => {
             {/* Color */}
             <div 
             onClick={()=> toggleActive('color')}
-            className="w-full relative">
+            className="w-full md:w-1/4 relative flex-1">
               <select
                 className="w-full p-3 text-zinc-400 rounded bg-white appearance-none pr-10"
               >
@@ -87,10 +147,64 @@ const Body = () => {
               </div>
             </div>
             
-            <button className="w-1/2 mx-auto mt-6 md:mt-0 text-lg capitalize bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">search</button>
+            <div className="w-full md:w-1/4 flex-1">
+              <button className="w-full text-lg capitalize bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">search</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="p-4 mt-5 max-w-6xl mx-auto">
+        <div className="flex justify-center flex-wrap gap-6 md:justify-between ">
+        {engineData.map((item) => (  
+          <motion.div 
+           key={item.id}
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: false, amount: 0.5 }}
+           variants={getEngineDataAnimation(item.animation)}
+           style={{ backgroundImage: `url(${item.img})` }}
+           className="bg-cover bg-center rounded-lg relative flex p-4 w-full sm:w-[48%] lg:w-[31%] h-60 items-center group">
+             {/* Base gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black to-blue-500/20 rounded-lg" />
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/20 rounded-lg
+              opacity-0 transition-opacity duration-1000 ease-in-out
+              group-hover:opacity-100" />
+
+            <div className="relative text-white capitalize flex flex-col flex-wrap justify-between h-11/12 w-11/12 mx-auto">
+              <div>
+                <p className="text-md mb-6">{item.subtitle}</p>
+                <h2 className="text-2xl md:3xl font-bold">{item.title}</h2>
+              </div>
+              <button className="bg-red-600 hover:bg-red-700 text-white text-sm md:text-lg px-4 py-2 w-2/3 rounded-4xl font-medium">
+                Shop Now
+              </button>
+            </div>
+        </motion.div>
+         ))}
+      </div>
+      </div>
+    
+    <AnimatePresence>
+      {showButton && (
+        <motion.button
+          key="scrollToTop"
+          onClick={scrollToTop}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed bottom-20 right-10 bg-red-600 hover:bg-red-700 p-4 rounded-full shadow-lg text-white z-50"
+        >
+          <FaArrowUp className="text-xl" />
+        </motion.button>
+      )}
+    </AnimatePresence>
+    <div>
+      
+    </div>
     </main>
   );
 };
