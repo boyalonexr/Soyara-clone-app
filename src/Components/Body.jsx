@@ -8,6 +8,7 @@ import TireImg from '../assets/mini-tire-img.jpg';
 const Body = () => {
   const [ active, setActive ] = useState(false)
   const [showButton, setShowButton] = useState(false)
+  const [activeCardId, setActiveCardId] = useState(null);
 
   const brands = ['Chevrolet', 'Jeep', 'Lexus', 'Volkswagen'];
   const types = ['1 Wheel Drive', 'Coupe', 'Hatchback', 'Hybrid', 'Sedan', 'SUV', 'Wagon'];
@@ -161,17 +162,23 @@ const scrollToTop = () => {
            key={item.id}
            initial="hidden"
            whileInView="visible"
-           viewport={{ once: false, amount: 0.5 }}
+           viewport={{ once: true}}
            variants={getEngineDataAnimation(item.animation)}
+           onClick={() =>
+              setActiveCardId(prev => (prev === item.id ? null : item.id))
+            }
            style={{ backgroundImage: `url(${item.img})` }}
-           className="bg-cover bg-center rounded-lg relative flex p-4 w-full sm:w-[48%] lg:w-[31%] h-60 items-center group">
+           className="bg-cover bg-center rounded-lg relative flex p-4 w-full sm:w-[48%] lg:w-[31%] h-60 items-center">
              {/* Base gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black to-blue-500/20 rounded-lg" />
 
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/20 rounded-lg
-              opacity-0 transition-opacity duration-1000 ease-in-out
-              group-hover:opacity-100" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-r from-black/90 to-black/20 rounded-lg
+                  transition-opacity duration-1000 ease-in-out
+                  ${activeCardId === item.id ? 'opacity-100' : 'opacity-0'}
+                  md:group-hover:opacity-100`}
+                  />
 
             <div className="relative text-white capitalize flex flex-col flex-wrap justify-between h-11/12 w-11/12 mx-auto">
               <div>
