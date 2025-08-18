@@ -29,7 +29,7 @@ useEffect(() => {
 }, [openNavBar]);
 
   return (
-    <div className="sticky top-0 w-full z-40 bg-white p-2 mx-auto shadow-md">
+    <div className="sticky top-0 w-full z-30 bg-white p-2 mx-auto shadow-md">
       <div className="flex items-center justify-between">
       <div>
         <a href="#">
