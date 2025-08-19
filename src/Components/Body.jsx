@@ -73,23 +73,23 @@ const scrollToTop = () => {
 
   return (
     <main>
-      <div className="relative h-[85vh] bg-img">
+      <div className="relative h-[85vh] md:h-[50vh] lg:h-[85vh] bg-img">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
 
         {/* Content */}
-        <div className="relative w-full max-w-screen-xl mx-auto z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-            <h1 className="text-4xl font-bold mb-4">Find parts for your vehicle</h1>
-            <p className="text-xl mb-5">Over hundreds of brands and thousands of parts</p>
+        <div className="relative max-w-screen-xl mx-auto z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Find parts for your vehicle</h1>
+            <p className="text-xl md:text-2xl mb-5">Over hundreds of brands and thousands of parts</p>
           
 
           {/* Dropdown inputs */}
-          <div className="flex flex-col px-4 md:flex-row mt-5 gap-4 w-[75%] md:h-[25%] md:bg-black/40  flex-wrap md:border border-white items-center shadow-2xl">
+          <div className="flex flex-wrap md:flex-nowrap md:h-[25%] mt-4 gap-4 w-full max-w-3xl bg-black/50 md:border p-4 items-center shadow-2xl rounded-md">
             {/* Brand */}
             <div 
-            onClick={()=> toggleActive('brand')} className="w-full md:w-1/4 relative flex-1">
+            onClick={()=> toggleActive('brand')} className="w-full sm:flex-1 relative ">
               <select
-                className="w-full p-3 text-zinc-400 rounded bg-white appearance-none pr-10 z-10 selected"
+                className="p-3 w-full text-zinc-400 rounded bg-white appearance-none pr-10 z-10 selected"
               >
                 <option value="" selected disabled>Brand</option>
                 {brands.map((brand) => (
@@ -109,7 +109,7 @@ const scrollToTop = () => {
             {/* Type */}
             <div
             onClick={()=> toggleActive('type')}
-            className="w-full md:w-1/4 relative flex-1">
+            className="w-full sm:flex-1 relative">
               <select
                 className="w-full p-3 text-zinc-400 rounded bg-white appearance-none "
               >
@@ -130,7 +130,7 @@ const scrollToTop = () => {
             {/* Color */}
             <div 
             onClick={()=> toggleActive('color')}
-            className="w-full md:w-1/4 relative flex-1">
+            className="w-full sm:flex-1 relative ">
               <select
                 className="w-full p-3 text-sm text-zinc-600 bg-white border border-zinc-300 rounded appearance-none" 
               >
@@ -148,7 +148,7 @@ const scrollToTop = () => {
               </div>
             </div>
             
-            <div className="w-full md:w-1/4 flex-1">
+            <div className="w-full sm:flex-1">
               <button className="w-full text-lg capitalize bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">search</button>
             </div>
           </div>
@@ -156,7 +156,7 @@ const scrollToTop = () => {
       </div>
 
       <div className="p-4 mt-5 max-w-6xl mx-auto">
-        <div className="flex justify-center flex-wrap gap-6 md:justify-between ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {engineData.map((item) => (  
           <motion.div 
            key={item.id}
@@ -168,7 +168,7 @@ const scrollToTop = () => {
               setActiveCardId(prev => (prev === item.id ? null : item.id))
             }
            style={{ backgroundImage: `url(${item.img})` }}
-           className="bg-cover bg-center rounded-lg relative flex p-4 w-full sm:w-[48%] lg:w-[31%] h-60 items-center">
+           className="bg-cover bg-center rounded-lg relative flex p-4 h-60 items-center">
              {/* Base gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black to-blue-500/20 rounded-lg" />
 
@@ -203,7 +203,7 @@ const scrollToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="fixed bottom-20 right-10 bg-red-600 hover:bg-red-700 p-4 rounded-full shadow-lg text-white z-50"
+          className="fixed bottom-10 right-6 md:right-10 bg-red-600 hover:bg-red-700 p-4 rounded-full shadow-lg text-white z-50"
         >
           <FaArrowUp className="text-xl" />
         </motion.button>

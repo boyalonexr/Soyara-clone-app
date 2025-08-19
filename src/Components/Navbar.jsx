@@ -19,8 +19,8 @@ function Navbar({ openNavBar, setOpenNavbar }) {
 };
 
   return (
-    <div className="sticky top-0 w-full z-30 bg-white p-2 mx-auto shadow-md">
-      <div className="flex items-center justify-between">
+    <div className="sticky top-0 z-30 bg-white p-2 w-full md:p-4 mx-auto shadow-y-md">
+      <div className="flex items-center justify-between md:w-[85%] mx-auto">
       <div>
         <a href="#">
           <img className="w-36" src={logo} alt="Sayara Logo" />
