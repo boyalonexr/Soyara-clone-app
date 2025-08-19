@@ -1,13 +1,10 @@
 import { FaRegUser } from 'react-icons/fa';
 import { BsCartPlus } from "react-icons/bs";
 import { AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
 import { FormCont, CartPopup } from './Form';
 
 
-const Header = () => {
-  const [activePopup, setActivePopup] = useState(false)
-  
+const Header = ({ activePopup, setActivePopup }) => {
   const togglePopup = (type)=> {
     setActivePopup(prev => (prev === type ? false: type))
   }

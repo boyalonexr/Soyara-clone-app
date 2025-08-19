@@ -3,7 +3,6 @@
 :root {
  font-family: "Rubik", sans-serif;
   line-height: 1.5;
-  overflow-x: hidden;
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
   background-color: #fff;
@@ -23,6 +22,12 @@
     --wc-highligh-text: white;
     --wc-content-bg: #fff;
     --wc-subtext: #767676;
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100%;
 }
 
 .pad{

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, scale } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import BenzImg from '../assets/mini-benz-img.jpg';
 import EngineImg from '../assets/mini-engine-img.jpg';
 import { FaArrowUp } from "react-icons/fa";

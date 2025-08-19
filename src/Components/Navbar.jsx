@@ -1,13 +1,11 @@
-// components/Navbar.jsx
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import logo from "../assets/sayara-logo.png";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-function Navbar() {
-  const [openNavBar, setOpenNavbar] = useState(false)
+function Navbar({ openNavBar, setOpenNavbar }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleNav = (type)=> {
     setDropdownOpen(prev => (prev === type ? false :type))
@@ -19,14 +17,6 @@ function Navbar() {
   exit: { opacity: 0, y: -20 },
   transition: { duration: 0.3, ease: 'easeInOut' },
 };
-
-useEffect(() => {
-  openNavBar ? document.body.style.overflow = 'hidden': document.body.style.overflow = ''
-
-  return () => {
-    document.body.style.overflow = '';
-  };
-}, [openNavBar]);
 
   return (
     <div className="sticky top-0 w-full z-30 bg-white p-2 mx-auto shadow-md">
@@ -59,12 +49,12 @@ useEffect(() => {
           </div>
           <li className="hover cursor-pointer pad">Home</li>
           <li>
-            <div className="flex justify-between items-center hover pl-4 h-10">
-              <span className="cursor-pointer">Shop</span>
+            <div className="flex justify-between items-center  h-10">
+              <span className="cursor-pointer flex items-center pl-4 h-full w-full hover ">Shop</span>
               <div  
               onClick={() => toggleNav('shop')}
-              className={`flex items-center border-l border-l-gray-300 h-full w-12 
-              ${dropdownOpen === 'shop' ? 'bg-red-500' : 'bg-inherit'}
+              className={`flex items-center border-l border-l-gray-300 h-full w-15
+              ${dropdownOpen === 'shop' ? 'bg-red-600' : 'bg-white'}
               `}>
               <MdOutlineKeyboardArrowDown className={`text-lg ${dropdownOpen === 'shop' ? 'text-white' : 'text-black'} w-3/4 mx-auto`}/>
               </div>
@@ -77,11 +67,11 @@ useEffect(() => {
                 {...popupAnimation}
               >
               <ul className="capitalize ml-8 border-t border-gray-300 divide-y divide-gray-300">
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">full width</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">shop left sidebar</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">shop right side bar</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">cart</li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">checkout</li>
+                <li className="p-2 hover:bg-gray-200 cursor-pointer">full width</li>
+                <li className="p-2 hover:bg-gray-200 cursor-pointer">shop left sidebar</li>
+                <li className="p-2 hover:bg-gray-200 cursor-pointer">shop right side bar</li>
+                <li className="p-2 hover:bg-gray-200 cursor-pointer">cart</li>
+                <li className="p-2 hover:bg-gray-200 cursor-pointer">checkout</li>
               </ul>
             </motion.div>
           )}
@@ -92,12 +82,13 @@ useEffect(() => {
         <li className="hover cursor-pointer pad">About Us</li>
         <li className="hover cursor-pointer pad">Contact Us</li>
          <li className="border-b border-gray-300">
-          <div className="flex justify-between items-center hover pl-4 h-10">
-            <span className="cursor-pointer">Pages</span>
+          <div className="flex justify-between items-center h-10">
+            <span className="cursor-pointer hover pl-4
+            w-full h-full flex items-center">Pages</span>
             <div  
             onClick={() => toggleNav('pages')}
-            className={`flex items-center border-l border-l-gray-300 h-full w-12 
-            ${dropdownOpen === 'pages' ? 'bg-red-500' : 'bg-inherit'}
+            className={`flex items-center border-l border-l-gray-300 h-full w-15
+            ${dropdownOpen === 'pages' ? 'bg-red-600' : 'bg-inherit'}
             `}>
             <MdOutlineKeyboardArrowDown className={`text-lg ${dropdownOpen === 'pages' ? 'text-white' : 'text-black'} w-3/4 mx-auto`}/>
             </div>
@@ -110,11 +101,11 @@ useEffect(() => {
             {...popupAnimation}
             >
             <ul className="capitalize ml-8 border-t border-gray-300 divide-y divide-gray-300">
-              <li className="p-2 hover:bg-gray-100 cursor-pointer">account</li>
-              <li className="p-2 hover:bg-gray-100 cursor-pointer">wishlist</li>
-              <li className="p-2 hover:bg-gray-100 cursor-pointer">terms and conditions</li>
-              <li className="p-2 hover:bg-gray-100 cursor-pointer">faq</li>
-              <li className="p-2 hover:bg-gray-100 cursor-pointer">404</li>
+              <li className="p-2 hover:bg-gray-200 cursor-pointer">account</li>
+              <li className="p-2 hover:bg-gray-200 cursor-pointer">wishlist</li>
+              <li className="p-2 hover:bg-gray-200 cursor-pointer">terms and conditions</li>
+              <li className="p-2 hover:bg-gray-200 cursor-pointer">faq</li>
+              <li className="p-2 hover:bg-gray-200 cursor-pointer">404</li>
             </ul>
             </motion.div>
           )}
