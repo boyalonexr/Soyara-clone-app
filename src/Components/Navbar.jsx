@@ -19,7 +19,7 @@ function Navbar({ openNavBar, setOpenNavbar }) {
 };
 
   return (
-    <div className="sticky top-0 z-30 bg-white p-2 w-full md:p-4 mx-auto shadow-y-md">
+    <div className="sticky top-0 z-30 bg-white p-2 w-full md:p-4 mx-auto shadow-lg">
       <div className="flex items-center justify-between md:w-[85%] mx-auto">
       <div>
         <a href="#">

@@ -84,7 +84,7 @@ const scrollToTop = () => {
           
 
           {/* Dropdown inputs */}
-          <div className="flex flex-wrap md:flex-nowrap md:h-[25%] mt-4 gap-4 w-full max-w-3xl bg-black/50 md:border p-4 items-center shadow-2xl rounded-md">
+          <div className="flex flex-wrap md:flex-nowrap md:h-[25%] mt-4 gap-4 w-3/4 md:w-full max-w-3xl bg-black/50 md:border p-4 items-center shadow-2xl rounded-md">
             {/* Brand */}
             <div 
             onClick={()=> toggleActive('brand')} className="w-full sm:flex-1 relative ">
@@ -162,7 +162,7 @@ const scrollToTop = () => {
            key={item.id}
            initial="hidden"
            whileInView="visible"
-           viewport={{ once: true}}
+           viewport={{ once: false, amount: 0.5 }}
            variants={getEngineDataAnimation(item.animation)}
            onClick={() =>
               setActiveCardId(prev => (prev === item.id ? null : item.id))
