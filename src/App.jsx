@@ -4,6 +4,7 @@ import LoadingScreen from './Components/LoadingScreen'
 import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 import Body from './Components/Body'
+import Shop from './Components/Shop'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -25,6 +26,12 @@ function App() {
     };
   }, [openNavBar || activePopup]);
 
+   useEffect(() => {
+    if (!loading) {
+      alert("⚠️ This app is still in development. Some bugs may be present.");
+    }
+  }, [loading]);
+
   return (
     loading ? <LoadingScreen /> :
     <>
@@ -32,6 +39,7 @@ function App() {
       {setActivePopup}/>
       <Navbar openNavBar={openNavBar} setOpenNavbar={setOpenNavbar} />
       <Body />
+      <Shop />
     </>
   )
 }
