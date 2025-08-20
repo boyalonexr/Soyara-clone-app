@@ -6,8 +6,8 @@ import shopCart3 from '../assets/shop-imgs/shop-cart3.jpg'
 import shopCart4 from '../assets/shop-imgs/shop-cart4.jpg'
 import shopCart5 from '../assets/shop-imgs/shop-cart5.jpg'
 import shopCart6 from '../assets/shop-imgs/shop-cart6.jpg'
-import shopCart7 from '../assets/featured-imgs/Repair-Part1.jpg'
-import shopCart8 from '../assets/featured-imgs/Repair-Part2.jpg'
+import shopCart7 from '../assets/featured-imgs/repair-part1.jpg'
+import shopCart8 from '../assets/featured-imgs/repair-part2.jpg'
 
 
 function Shop() {
