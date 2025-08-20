@@ -1,4 +1,4 @@
-import shopCart1 from '../assets/shop-imgs/shop-Cart1.jpg'
+import shopCart1 from '../assets/shop-imgs/shop-cart1.jpg'
 import shopCart2 from '../assets/shop-imgs/shop-cart2.jpg'
 import shopCart3 from '../assets/shop-imgs/shop-cart3.jpg'
 import shopCart4 from '../assets/shop-imgs/shop-cart4.jpg'
