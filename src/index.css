@@ -40,7 +40,13 @@ body.no-scroll {
 }
 
 .bg-img {
-  background-image: url(./assets/Main-img.jpg);
+  background-image: url(./assets/body-imgs/Main-img.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-shop {
+  background-image: url(./assets/featured-imgs/bg-img.jpg);
   background-size: cover;
   background-position: center;
 }

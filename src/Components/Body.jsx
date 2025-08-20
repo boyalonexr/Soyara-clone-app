@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"
-import BenzImg from '../assets/mini-benz-img.jpg';
-import EngineImg from '../assets/mini-engine-img.jpg';
+import BenzImg from '../assets/body-imgs/mini-benz-img.jpg';
+import EngineImg from '../assets/body-imgs/mini-engine-img.jpg';
 import { FaArrowUp } from "react-icons/fa";
-import TireImg from '../assets/mini-tire-img.jpg';
+import TireImg from '../assets/body-imgs/mini-tire-img.jpg';
 
 const Body = () => {
   const [ active, setActive ] = useState(false)
@@ -25,14 +25,14 @@ const Body = () => {
     img: TireImg,
     title: "wheel rim",
     subtitle: "power tools of next level",
-    animation: "right",
+    animation: "left",
     id: 2,
   },
   {
     img: EngineImg,
     title: "body parts",
     subtitle: "for any vehicle",
-    animation: "left",
+    animation: "right",
     id: 3,
   },
 ];
@@ -40,13 +40,13 @@ const Body = () => {
 const getEngineDataAnimation = (direction) => {
   return {
     hidden: {
-      x: direction === "left" ? -100 : 100,
+      x: direction === "left" ? -300 : 300,
       opacity: 0,
     },
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 };
@@ -72,8 +72,8 @@ const scrollToTop = () => {
 
 
   return (
-    <main>
-      <div className="relative h-[87vh] md:h-[57vh] lg:h-[78vh] bg-img">
+    <main className="overflow-x-hidden">
+      <div className="relative h-[90vh] md:h-[58vh] lg:h-[78vh] bg-img">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm md:backdrop-blur-none" />
 
@@ -164,7 +164,7 @@ const scrollToTop = () => {
            key={item.id}
            initial="hidden"
            whileInView="visible"
-           viewport={{ once: true}}
+           viewport={{ once: true, amount: 0.2}}
            variants={getEngineDataAnimation(item.animation)}
            onClick={() =>
               setActiveCardId(prev => (prev === item.id ? null : item.id))

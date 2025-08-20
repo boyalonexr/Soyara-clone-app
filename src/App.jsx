@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 import Body from './Components/Body'
 import Shop from './Components/Shop'
+import FeaturesProducts from './Components/FeaturesProducts'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -26,11 +27,11 @@ function App() {
     };
   }, [openNavBar || activePopup]);
 
-   useEffect(() => {
-    if (!loading) {
-      alert("⚠️ This app is still in development. Some bugs may be present.");
-    }
-  }, [loading]);
+  useEffect(() => {
+  if (!loading) {
+    alert("⚠️ This app is still in development. Some bugs may be present.");
+  }
+}, [loading]);
 
   return (
     loading ? <LoadingScreen /> :
@@ -40,6 +41,7 @@ function App() {
       <Navbar openNavBar={openNavBar} setOpenNavbar={setOpenNavbar} />
       <Body />
       <Shop />
+      <FeaturesProducts />
     </>
   )
 }
