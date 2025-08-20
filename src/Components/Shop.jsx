@@ -6,7 +6,7 @@ import shopCart3 from '../assets/shop-imgs/shop-cart3.jpg'
 import shopCart4 from '../assets/shop-imgs/shop-cart4.jpg'
 import shopCart5 from '../assets/shop-imgs/shop-cart5.jpg'
 import shopCart6 from '../assets/shop-imgs/shop-cart6.jpg'
-import shopCart7 from '../assets/featured-imgs/repair-part1.jpg'
+import shopCart7 from '../assets/featured-imgs/repair-part3.png'
 import shopCart8 from '../assets/featured-imgs/repair-part2.jpg'
 
 
@@ -41,7 +41,7 @@ function Shop() {
                 className={`flex flex-col items-center justify-between border gap-2 capitalize mb-4 h-70 lg:hover:border-red-600 rounded-md ${isActive ? 'border-red-600' : 'border-gray-300'}`}
               >
                 <div className='w-full h-full flex items-center justify-center'>
-                  <img className='w-1/2 md:w-1/4' src={item.image} alt="shop-cart-imgs" />
+                  <img className='w-1/4' src={item.image} alt="shop-cart-imgs" />
                 </div>
                 <p className={`text-xl font-medium w-full text-center lg:hover:bg-red-600 lg:hover:text-white  p-5 ${isActive ? 'bg-red-600 text-white' : 'bg-gray-200'}`}>
                   {item.name}
