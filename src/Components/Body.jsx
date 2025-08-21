@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"
-import BenzImg from '../assets/body-imgs/mini-benz-img.jpg';
-import EngineImg from '../assets/body-imgs/mini-engine-img.jpg';
 import { FaArrowUp } from "react-icons/fa";
-import TireImg from '../assets/body-imgs/mini-tire-img.jpg';
+import { engineData } from "./featuredProdConts";
 
 const Body = () => {
   const [ active, setActive ] = useState(false)
@@ -13,34 +11,12 @@ const Body = () => {
   const brands = ['Chevrolet', 'Jeep', 'Lexus', 'Volkswagen'];
   const types = ['1 Wheel Drive', 'Coupe', 'Hatchback', 'Hybrid', 'Sedan', 'SUV', 'Wagon'];
   const colors = ['Red', 'Black', 'Silver', 'White'];
-  const engineData = [
-  {
-    img: BenzImg,
-    title: "interior parts",
-    subtitle: "low prices guarantee",
-    animation: "left",
-    id: 1,
-  },
-  {
-    img: TireImg,
-    title: "wheel rim",
-    subtitle: "power tools of next level",
-    animation: "left",
-    id: 2,
-  },
-  {
-    img: EngineImg,
-    title: "body parts",
-    subtitle: "for any vehicle",
-    animation: "right",
-    id: 3,
-  },
-];
+
 
 const getEngineDataAnimation = (direction) => {
   return {
     hidden: {
-      x: direction === "left" ? -300 : 300,
+      x: direction === "left" ? -100 : 100,
       opacity: 0,
     },
     visible: {
@@ -75,7 +51,7 @@ const scrollToTop = () => {
     <main className="overflow-x-hidden">
       <div className="relative h-[90vh] md:h-[58vh] lg:h-[78vh] bg-img">
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm md:backdrop-blur-none" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-5 md:backdrop-blur-none" />
 
         {/* Content */}
         <div className="relative w-full mx-auto z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
@@ -89,11 +65,14 @@ const scrollToTop = () => {
           <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 mt-4 gap-4 w-full max-w-4xl bg-black/50 p-4 items-center shadow-2xl">
             {/* Brand */}
             <div 
-            onClick={()=> toggleActive('brand')} className="w-full relative ">
+            onClick={()=> toggleActive('brand')} 
+            className="relative w-3/4 mx-auto md:w-full">
               <select
-                className="p-3 w-full text-zinc-400 bg-white appearance-none pr-10 z-10 selected"
+                name="brand"
+                className="p-3 w-full text-zinc-400 bg-white appearance-none pr-10 z-10 "
+                defaultValue=""
               >
-                <option value="" selected disabled>Brand</option>
+                <option value="" disabled>Brand</option>
                 {brands.map((brand) => (
                   <option 
                   key={brand} 
@@ -103,7 +82,7 @@ const scrollToTop = () => {
                 ))}
               </select>
 
-              <div className="pointer-events-none absolute right-4 top-6 transform -translate-y-1/2 text-zinc-500">
+              <div className="pointer-events-none absolute right-5 top-6 transform -translate-y-1/2 text-zinc-500">
                 {active === 'brand'  ? '▲' : '▼'}
               </div>
             </div>
@@ -111,11 +90,13 @@ const scrollToTop = () => {
             {/* Type */}
             <div
             onClick={()=> toggleActive('type')}
-            className="w-full relative">
+            className="relative w-3/4 mx-auto md:w-full">
               <select
-                className="w-full p-3 text-zinc-400 bg-white appearance-none "
+                name="type"
+                className=" p-3 text-zinc-400 bg-white appearance-none w-full"
+                defaultValue=""
               >
-                <option value="" disabled selected>Type</option>
+                <option value="" disabled>Type</option>
                 {types.map((type)=> (
                   <option 
                   key={type}
@@ -124,7 +105,7 @@ const scrollToTop = () => {
                 ))}
               </select>
 
-              <div className="pointer-events-none absolute right-4 top-6 transform -translate-y-1/2 text-zinc-500">
+              <div className="pointer-events-none absolute right-5 top-6 transform -translate-y-1/2 text-zinc-500">
                {active === 'type' ? '▲' : '▼'}
               </div>
             </div>
@@ -132,11 +113,13 @@ const scrollToTop = () => {
             {/* Color */}
             <div 
             onClick={()=> toggleActive('color')}
-            className="w-full relative ">
+            className="relative w-3/4 mx-auto md:w-full">
               <select
-                className="w-full p-3 text-sm text-zinc-600 bg-white border border-zinc-300 appearance-none" 
+                name="color"
+                className="p-3 text-zinc-400 bg-white appearance-none pr-10 z-10 w-full"
+                defaultValue="" 
               >
-                <option value="" disabled selected>Color</option>
+                <option value="" disabled>Color</option>
                {colors.map((color)=> (
                 <option 
                 key={color}
@@ -145,32 +128,32 @@ const scrollToTop = () => {
                 ))}
               </select>
 
-              <div className="pointer-events-none absolute right-4 top-6 transform -translate-y-1/2 text-zinc-500">
+              <div className="pointer-events-none absolute right-5 top-6 transform -translate-y-1/2 text-zinc-500">
                 {active === 'color' ? '▲' : '▼'}
               </div>
             </div>
             
             <div className="w-3/4 lg:w-11/12 mx-auto">
-              <button className="w-full text-lg capitalize bg-red-600 text-white px-6 py-2 hover:bg-red-700 transition">search</button>
+              <button className=" w-3/4 md:w-full text-lg capitalize bg-red-600 text-white px-6 py-2 hover:bg-red-700 transition">search</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="p-4 my-5 max-w-6xl mx-auto">
+      <div className="p-4 my-5 mt-9 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {engineData.map((item) => (  
           <motion.div 
            key={item.id}
            initial="hidden"
            whileInView="visible"
-           viewport={{ once: true, amount: 0.2}}
+          viewport={{ once: true , amount: 0.7}}
            variants={getEngineDataAnimation(item.animation)}
            onClick={() =>
               setActiveCardId(prev => (prev === item.id ? null : item.id))
             }
            style={{ backgroundImage: `url(${item.img})` }}
-           className="bg-cover bg-center rounded-lg relative flex p-4 h-60 items-center">
+           className="bg-cover bg-center rounded-lg relative flex p-4 h-[16rem] items-center">
              {/* Base gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black to-blue-500/20 rounded-lg" />
 

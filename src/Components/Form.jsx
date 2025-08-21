@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import powerengine from "../assets/Power-engine.jpg";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const popupAnimation = {
@@ -14,19 +13,19 @@ export const FormCont = (props) => {
     <>
     <div
       onClick={() => props.setActivePopup(false)}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"></div>
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"></div>
 
     <motion.div
       key="login-popup"
       {...popupAnimation}
       style={{ boxShadow: '0 0 20px rgba(0,0,0,0.3)' }}
-      className="text-zinc-500 p-5 py-6 w-72 absolute top-18 left-0  z-50 bg-white capitalize"
+      className="text-zinc-500 p-5 py-6 w-72 absolute top-18 left-0  z-30 bg-white capitalize"
     >
       <h2 className="text-lg text-neutral-700 font-bold pb-3 text-center">
         log in to your account
       </h2>
       <hr />
-      <form className="font-medium text-zinc-400 mt-3 flex flex-wrap flex-col gap-y-3" action="">
+      <form name='Login-Form' className="font-medium text-zinc-400 mt-3 flex flex-wrap flex-col gap-y-3" action="">
         <label htmlFor="username">Username or email address</label>
         <input
           className="p-2 pl-4 rounded-3xl border border-zinc-500 text-black"
@@ -63,35 +62,51 @@ export const FormCont = (props) => {
   );
 };
 
-export const CartPopup = (props) => {
+export const CartPopup = ({ setActivePopup, cartItems, cartTotal, handleRemoveFromCart}) => {
+
   return (
     <>
     <div
-      onClick={() => props.setActivePopup(false)}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"></div>
+      onClick={() => setActivePopup(false)}
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"/>
+
     <motion.div
       key="cart-popup"
       {...popupAnimation}
       style={{ boxShadow: '0 0 20px rgba(0,0,0,0.3)' }}
-      className="p-5 py-6 w-85 absolute z-50 top-18 right-0 bg-white text-zinc-400"
+      className="p-5 py-6 w-85 absolute z-30 top-18 right-0 bg-white text-zinc-400"
     >
-      <div className="pb-4">
-        <a className="flex text-zinc-500 justify-between items-center" href="#">
-          <img className="border border-zinc-200 w-1/4" src={powerengine} alt="Powerengine" />
-          <p className="px-4">
-            Powerstroke Engines Turbo Air Products <br />
-            1 x $345.56
-          </p>
-          <button className="w-10 flex justify-center items-center pt-4">
-            <RiDeleteBin6Line className="text-2xl" />
-          </button>
-        </a>
-      </div>
+      {cartItems.length === 0 ? (
+        <p className='text-center py-6 text-zinc-500'>No items in Cart</p>
+      ) : (
+        cartItems.map((item, index)=> (
+           <div 
+           key={index}
+           className="pb-4">
+              <a className="flex text-zinc-500 justify-between items-center" href="#">
+                <img className="border border-zinc-200 w-1/4" src={item.image} alt={item.name} />
+                <p className="px-4">
+                  {item.name} <br />
+                  <span className='text-black'>
+                    {item.quantity} 
+                  </span>{" "}x
+                   ${item.price}
+                </p>
+                <button 
+                onClick={()=> handleRemoveFromCart(item.id)}
+                className="w-10 flex justify-center items-center pt-4">
+                  <RiDeleteBin6Line className="text-2xl" />
+                </button>
+              </a>
+            </div>
+        ))
+      )}
+     
       <hr />
       <div className="flex flex-col">
         <div className="flex items-center justify-between text-black w-full mt-2">
           <h3>subtotal:</h3>
-          <p className="text-lg">$563.00</p>
+          <p className="text-lg">${cartTotal.toFixed(2)}</p>
         </div>
         <div className="flex gap-4 pt-5">
           <button className="text-md capitalize flex-1 text-white p-2 bg-red-500 rounded-sm">

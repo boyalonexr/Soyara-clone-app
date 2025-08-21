@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { FormCont, CartPopup } from './Form';
 
 
-const Header = ({ activePopup, setActivePopup }) => {
+const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemoveFromCart }) => {
   const togglePopup = (type)=> {
     setActivePopup(prev => (prev === type ? false: type))
   }
@@ -40,7 +40,7 @@ const Header = ({ activePopup, setActivePopup }) => {
         </div>
         <div onClick={()=> togglePopup('cart')} className='leading-5 cursor-pointer pl-2  md:pl-4'> 
           <p className='text-sm md:text-md text-zinc-400 font-sm'>shopping cart</p>
-          <h3 className='text-md md:text-lg text-zinc-800 font-medium'>$345.56</h3>
+          <h3 className='text-md md:text-lg text-zinc-800 font-medium'>${cartTotal.toFixed(2)}</h3>
         </div>
         </div>
 
@@ -48,14 +48,15 @@ const Header = ({ activePopup, setActivePopup }) => {
         {activePopup === 'cart' && 
           <CartPopup 
             setActivePopup = {setActivePopup}
+            cartItems={cartItems}
+            cartTotal={cartTotal}
+            handleRemoveFromCart={handleRemoveFromCart}
           />}
       </AnimatePresence>
       </div>
       </div>
     </header>
-      {/* <div className='w-11/12 mx-auto p-2'>
-          {<Navbar />}
-      </div> */}
+
     </>
   )
 }

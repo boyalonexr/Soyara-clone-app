@@ -4,8 +4,11 @@ import shopCart3 from '../assets/shop-imgs/shop-cart3.jpg'
 import shopCart4 from '../assets/shop-imgs/shop-cart4.jpg'
 import shopCart5 from '../assets/shop-imgs/shop-cart5.jpg'
 import shopCart6 from '../assets/featured-imgs/repair-part3.png'
+import BenzImg from '../assets/body-imgs/mini-benz-img.jpg';
+import EngineImg from '../assets/body-imgs/mini-engine-img.jpg';
+import TireImg from '../assets/body-imgs/mini-tire-img.jpg';
 
-const FeaturedProducts = [
+export const FeaturedProducts = [
   {
     id: 1,
     name: "V8 Turbo Engine",
@@ -50,5 +53,28 @@ const FeaturedProducts = [
   },
 ];
 
-export default FeaturedProducts
+export const engineData = [
+  {
+    img: BenzImg,
+    title: "interior parts",
+    subtitle: "low prices guarantee",
+    animation: "left",
+    id: 1,
+  },
+  {
+    img: TireImg,
+    title: "wheel rim",
+    subtitle: "power tools of next level",
+    animation: "left",
+    id: 2,
+  },
+  {
+    img: EngineImg,
+    title: "body parts",
+    subtitle: "for any vehicle",
+    animation: "right",
+    id: 3,
+  },
+];
+
 
