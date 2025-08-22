@@ -7,7 +7,9 @@ import shopCart6 from '../assets/featured-imgs/repair-part3.png'
 import BenzImg from '../assets/body-imgs/mini-benz-img.jpg';
 import EngineImg from '../assets/body-imgs/mini-engine-img.jpg';
 import TireImg from '../assets/body-imgs/mini-tire-img.jpg';
-
+import carInterior from '../assets/car-interior.jpg';
+import whiteBenz from '../assets/white-benz.jpg';
+import carTab from '../assets/tab.png'
 
 export const FeaturedProducts = [
   {
@@ -89,5 +91,36 @@ export const reviewData = [
   { id: 8, product: 'AC Delco 45H2130 Coil Springs', rating: 1, price: 102.00, img: shopCart1, review: 3 },
   { id: 9, product: 'Car Sports seat', rating: 2, price: 897.00, img: shopCart4, review: 13 },
 
+];
+
+
+export const articlesData = [
+  {
+    id: 1,
+    title: 'The Best Body Parts for Your Car in 2025: What to Replace and Why It Matters',
+    date: 'May 20, 2020',
+    category: 'Interior',
+    author: 'Admin',
+    image: carInterior,
+    avatar: carTab,
+  },
+  {
+    id: 2,
+    title: 'How to Upgrade Your Car Interior Without Breaking the Bank — A Step-by-Step Guide',
+    date: 'June 14, 2025',
+    category: 'Car',
+    author: 'Admin',
+    image: whiteBenz,
+    avatar: carTab,
+  },
+  {
+    id: 3,
+    title: '5 Must-Have Car Accessories Every Driver Needs for Long Road Trips This Summer',
+    date: 'August 1, 2025',
+    category: 'Body Parts',
+    author: 'Admin',
+    image: TireImg,
+    avatar: carTab,
+  }
 ];
 

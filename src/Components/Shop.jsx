@@ -51,7 +51,7 @@ function Shop() {
           })}
         </div>
 
-        <button className="mt-6 bg-red-600 hover:bg-red-700 text-white p-4 px-8 md:mt-0 rounded-full self-center md:absolute md:right-4 md:top-0 hidden md:border-y-black">
+        <button className="mt-6 bg-red-600 hover:bg-red-700 text-white p-4 px-8 md:mt-0 rounded-full self-center md:absolute md:right-4 md:top-0 hidden md:block md:border-y-black">
           Shop Now
         </button>
 

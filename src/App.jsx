@@ -6,7 +6,7 @@ import Navbar from './Components/Navbar'
 import Body from './Components/Body'
 import Shop from './Components/Shop'
 import FeaturesProducts from './Components/FeaturesProducts'
-import Reviews from './Components/reviews'
+import Reviews from './Components/Reviews'
 
 
 

@@ -139,7 +139,7 @@ function FeaturesProducts({addToCart}) {
               className="flex-shrink-0 w-full mx-auto md:w-1/2 lg:w-1/3 px-2"
             >
               {/* Card */}
-              <div className="flex flex-col p-4 rounded-lg bg-white md:gap-1 h-full max-w-[400px] md:ml-4 mx-auto shadow-2xl m-2">
+              <div className="flex flex-col p-4 rounded-lg bg-white md:gap-1 lg:gap-0 h-full max-w-[400px] md:ml-4 mx-auto shadow-2xl m-2 lg:m-0">
                 {/* Sale & Icons */}
                 <div className="flex justify-between mb-8">
                   <div className="bg-red-600 h-8 px-4 flex items-center rounded-full">
