@@ -6,10 +6,12 @@ import Navbar from './Components/Navbar'
 import Body from './Components/Body'
 import Shop from './Components/Shop'
 import FeaturesProducts from './Components/FeaturesProducts'
+import Reviews from './Components/reviews'
+
 
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [activePopup, setActivePopup] = useState(false)
   const [openNavBar, setOpenNavbar] = useState(false)
   const [cartItems, setCartItems] = useState(() => {
@@ -34,11 +36,11 @@ function App() {
     };
   }, [openNavBar || activePopup]);
 
-  useEffect(() => {
-  if (!loading) {
-    alert("⚠️ This app is still in development. Some bugs may be present.");
-  }
-}, [loading]);
+//   useEffect(() => {
+//   if (!loading) {
+//     alert("⚠️ This app is still in development. Some bugs may be present.");
+//   }
+// }, [loading]);
 
       useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -82,6 +84,7 @@ function App() {
       <FeaturesProducts
         addToCart={handleAddToCart} 
         />
+      <Reviews/>
     </>
   )
 }

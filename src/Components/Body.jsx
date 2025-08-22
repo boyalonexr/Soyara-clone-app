@@ -188,7 +188,7 @@ const scrollToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="fixed bottom-10 right-6 md:right-10 bg-red-600 hover:bg-red-700 p-4 rounded-full shadow-lg text-white z-50 "
+          className="fixed bottom-10 right-6 md:right-10 bg-red-600 hover:bg-red-700 p-4 rounded-full shadow-lg text-white z-30 "
         >
           <FaArrowUp className="text-xl" />
         </motion.button>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FeaturedProducts } from "./featuredProdConts";
 import { motion } from "framer-motion";
+import tire from "../assets/tire.png"
 import {
   FaAngleLeft,
   FaAngleRight,
@@ -135,10 +136,10 @@ function FeaturesProducts({addToCart}) {
           {FeaturedProducts.map((product) => (
             <div
               key={product.id}
-              className="flex-shrink-0 w-full mx-auto md:w-1/2 lg:w-1/3"
+              className="flex-shrink-0 w-full mx-auto md:w-1/2 lg:w-1/3 px-2"
             >
               {/* Card */}
-              <div className="flex flex-col p-4 rounded-lg bg-white md:gap-1 h-full max-w-[400px] md:ml-4 mx-auto shadow-2xl ">
+              <div className="flex flex-col p-4 rounded-lg bg-white md:gap-1 h-full max-w-[400px] md:ml-4 mx-auto shadow-2xl m-2">
                 {/* Sale & Icons */}
                 <div className="flex justify-between mb-8">
                   <div className="bg-red-600 h-8 px-4 flex items-center rounded-full">
@@ -188,6 +189,18 @@ function FeaturesProducts({addToCart}) {
       </div>
       </motion.div>
     </div>
+
+    <div className="md:h-70 h-60 relative flex items-center check my-8 md:my-12">
+      <div className="md:w-[60%] w-full px-7 md:px-5">
+        <h2 className="text-4xl pb-3 font-bold">Take care of your tire 22% off</h2>
+        <p className="md:text-lg">This dicount is not valid in conjunction with the other offers</p>
+      </div>     
+
+    <div className="w-[20rem] absolute z-40 top-2 md:top-0 right-0">
+      <img src={tire} alt="tire" />
+    </div>
+    </div>
+        
     </>
   );
 }

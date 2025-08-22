@@ -8,6 +8,7 @@ import BenzImg from '../assets/body-imgs/mini-benz-img.jpg';
 import EngineImg from '../assets/body-imgs/mini-engine-img.jpg';
 import TireImg from '../assets/body-imgs/mini-tire-img.jpg';
 
+
 export const FeaturedProducts = [
   {
     id: 1,
@@ -77,4 +78,16 @@ export const engineData = [
   },
 ];
 
+export const reviewData = [
+  { id: 1, product: 'Air Intake Pump', rating: 4, price: 360.00, img: shopCart3, review: 97 },
+  { id: 2, product: "Twin Turbo Kit", rating: 5, price: 4500.00, img: shopCart4, review: 78 },
+  { id: 3, product: 'power', rating: 1, price: 678.78, img: shopCart5, review: 24 },
+  { id: 4, product: 'Fuel Filter', rating: 4, price: 563.00, img: shopCart2, review: 64 },
+  { id: 5, product: 'car vacuum cleaner 120W', rating: 3, price: 120, img: shopCart2, review: 69 },
+  { id: 6, product: "V8 Turbo Engine", rating: 5, price: 2356.00, img: shopCart5, review: 112 },
+  { id: 7, product: 'Air Fillter', rating: 5, price: 65.00, img: shopCart6, review: 79 },
+  { id: 8, product: 'AC Delco 45H2130 Coil Springs', rating: 1, price: 102.00, img: shopCart1, review: 3 },
+  { id: 9, product: 'Car Sports seat', rating: 2, price: 897.00, img: shopCart4, review: 13 },
+
+];
 
