@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
   if (!loading) {
-    alert("⚠️ This app is still in development. Some bugs may be present.");
+    alert("⚠️ This website is still in development. Some bugs may be present.");
   }
 }, [loading]);
 

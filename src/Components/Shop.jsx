@@ -8,6 +8,10 @@ import shopCart5 from '../assets/shop-imgs/shop-cart5.jpg'
 import shopCart6 from '../assets/shop-imgs/shop-cart6.jpg'
 import shopCart7 from '../assets/featured-imgs/repair-part3.png'
 import shopCart8 from '../assets/featured-imgs/repair-part2.jpg'
+import { PiTruckTrailerLight } from 'react-icons/pi';
+import { RiCustomerService2Line } from 'react-icons/ri';
+import { GrShieldSecurity } from 'react-icons/gr';
+import { BsTags } from 'react-icons/bs';
 
 
 function Shop() {
@@ -24,9 +28,67 @@ function Shop() {
   { id: 8, name: "engine  drivetrain", image: shopCart6 },
 ];
 
+const features = [
+    {
+      icon: <PiTruckTrailerLight className='text-5xl text-red-500 mr-3' />,
+      title: 'Free Shipping',
+      subtitle: 'For orders from $50',
+      direction: 'left',
+    },
+    {
+      icon: <RiCustomerService2Line className='text-5xl text-red-500 mr-3' />,
+      title: 'Support 24/7',
+      subtitle: 'Call us anytime',
+      direction: 'left',
+    },
+    {
+      icon: <GrShieldSecurity className='text-5xl text-red-500 mr-3' />,
+      title: '100% Safety',
+      subtitle: 'Only secure payments',
+      direction: 'right',
+    },
+    {
+      icon: <BsTags className='text-5xl text-red-500 mr-3' />,
+      title: 'Hot Offers',
+      subtitle: 'Discounts up to 90%',
+      direction: 'right',
+    },
+  ];
+
+  const slideVariants = {
+    left: {
+      hidden: { opacity: 0, x: -50 },
+      visible: { opacity: 1, x: 0 },
+    },
+    right: {
+      hidden: { opacity: 0, x: 50 },
+      visible: { opacity: 1, x: 0 },
+    },
+  };
 
 
   return (
+    <> 
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-black bg-[#f7f5f5] p-4 capitalize mb-8'>
+      {features.map((item, index) => (
+        <motion.div
+          key={index}
+          className='flex items-center gap-6 py-3'
+          variants={slideVariants[item.direction]}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+        >
+          {item.icon}
+          <div>
+            <h2 className='font-medium'>{item.title}</h2>
+            <p className='text-sm'>{item.subtitle}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
     <div className='flex flex-col p-2 px-4 mb-8 text-zinc-600 md:relative'>
       <h2 className='text-2xl font-medium mb-7 md:mb-12'>Shop by Category</h2>
 
@@ -56,7 +118,7 @@ function Shop() {
         </button>
 
 </div>
-
+</>
   )
 }
 

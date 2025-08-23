@@ -13,14 +13,13 @@ export const FormCont = (props) => {
     <>
     <div
       onClick={() => props.setActivePopup(false)}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30
-      lg:z-50"></div>
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"></div>
 
     <motion.div
       key="login-popup"
       {...popupAnimation}
       style={{ boxShadow: '0 0 20px rgba(0,0,0,0.3)' }}
-      className="text-zinc-500 p-5 py-6 w-72 absolute top-18 left-0  z-30 lg:z-50 bg-white capitalize"
+      className="text-zinc-500 p-5 py-6 w-72 absolute top-18 left-0  z-50 lg:z-50 bg-white capitalize"
     >
       <h2 className="text-lg text-neutral-700 font-bold pb-3 text-center">
         log in to your account
@@ -69,14 +68,14 @@ export const CartPopup = ({ setActivePopup, cartItems, cartTotal, handleRemoveFr
     <>
     <div
       onClick={() => setActivePopup(false)}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50
       lg:z-50"/>
 
     <motion.div
       key="cart-popup"
       {...popupAnimation}
       style={{ boxShadow: '0 0 20px rgba(0,0,0,0.3)' }}
-      className="p-5 py-6 w-85 absolute z-30 lg:z-50 top-18 right-0 bg-white text-zinc-400"
+      className="p-5 py-6 w-85 absolute z-50 top-18 right-0 bg-white text-zinc-400"
     >
       {cartItems.length === 0 ? (
         <p className='text-center py-6 text-zinc-500'>No items in Cart</p>

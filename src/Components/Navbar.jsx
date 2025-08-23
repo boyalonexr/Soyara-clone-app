@@ -42,7 +42,7 @@ function Navbar({ openNavBar, setOpenNavbar }) {
   ];
 
   return (
-    <div className="sticky lg:static top-0 z-50 lg:z-40 bg-white p-2 w-full md:p-4 mx-auto shadow-lg">
+    <div className="sticky lg:static top-0 z-40 lg:z-30 bg-white p-2 w-full md:p-4 mx-auto shadow-lg">
       {/* Top Nav Container */}
       <div className="flex items-center justify-between md:w-[85%] mx-auto lg:w-[92%]">
         {/* Desktop: Shop by Category Button */}

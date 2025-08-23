@@ -11,6 +11,7 @@ import carInterior from '../assets/car-interior.jpg';
 import whiteBenz from '../assets/white-benz.jpg';
 import carTab from '../assets/tab.png'
 
+
 export const FeaturedProducts = [
   {
     id: 1,
@@ -123,4 +124,6 @@ export const articlesData = [
     avatar: carTab,
   }
 ];
+
+
 
