@@ -69,7 +69,7 @@ const features = [
 
   return (
     <> 
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-black bg-[#f7f5f5] p-4 capitalize mb-8'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-black bg-[#f7f5f5] p-4 capitalize mb-8 overflow-x-hidden'>
       {features.map((item, index) => (
         <motion.div
           key={index}

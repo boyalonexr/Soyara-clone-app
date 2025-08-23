@@ -196,7 +196,7 @@ function FeaturesProducts({addToCart}) {
         <p className="md:text-lg">This dicount is not valid in conjunction with the other offers</p>
       </div>     
 
-    <div className="w-[20rem] absolute z-40 lg:z-30 top-2 md:top-0 right-0">
+    <div className="w-[20rem] absolute z-30 top-2 md:top-0 right-0">
       <img src={tire} alt="tire" />
     </div>
     </div>
