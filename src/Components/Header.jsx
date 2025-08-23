@@ -2,6 +2,8 @@ import { FaRegUser } from 'react-icons/fa';
 import { BsCartPlus } from "react-icons/bs";
 import { AnimatePresence } from 'framer-motion';
 import { FormCont, CartPopup } from './Form';
+import sayaraLogo from "../assets/sayara-logo.png"
+import { FaSearch } from "react-icons/fa";
 
 
 const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemoveFromCart }) => {
@@ -12,7 +14,20 @@ const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemov
   return (
     <>
     <header className='gap-y-2 flex-wrap p-2 md:p-4 border border-b-zinc-400'>
-      <div className='flex justify-between w-11/12 md:w-[85%] mx-auto'>
+      <div className='flex justify-between  w-11/12 md:w-[85%] mx-auto lg:w-[92%]'>
+      
+     <div className='hidden lg:block  w-[70%]'> 
+      <div className=' flex gap-x-6 items-center w-full'>
+        <img className='w-[33%]' src={sayaraLogo} alt="" />
+
+        <div className='relative text-zinc-500 w-full'>
+          <input className='border border-gray-300 focus:outline-none w-full rounded-full pl-6 py-3 p-2' type="text" placeholder='Search' />
+          <button className='bg-red-600 rounded-full w-25 py-3.5 px-10 absolute right-1 top-0.5 text-white'><FaSearch /></button>
+        </div>
+      </div>
+     </div> 
+
+    <div className='flex w-full items-center lg:w-[40%] justify-between lg:justify-around lg:ml-8'>
       <div className='flex flex-wrap relative'>
       <div className='w-8'>
         <FaRegUser className='text-zinc-400 text-5xl  w-full'/>
@@ -54,6 +69,7 @@ const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemov
           />}
       </AnimatePresence>
       </div>
+     </div> 
       </div>
     </header>
 

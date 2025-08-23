@@ -63,10 +63,10 @@ function Reviews() {
 
      {articlesData.map(article => (
         <article key={article.id}
-        onClick={()=> setActiveArticle(prev => (prev === article.id ? null : article.id))} 
+        onClick={()=> setActiveArticle(article.id)} 
         className={`grid grid-cols-1 md:grid-cols-2 mb-10 shadow-sm rounded-lg lg:w-[90%] mx-auto
         transition-transform duration-500 ease-in-out hover:scale-105 cursor-pointer
-        ${activeArticle === article.id ? 'transition-transform duration-500 ease-in-out hover:scale-105' : '' }
+        ${activeArticle === article.id ? ' scale-105' : '' }
         `}>
           <div
             style={{ backgroundImage: `url(${article.image})` }}

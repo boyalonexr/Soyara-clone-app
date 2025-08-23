@@ -7,6 +7,7 @@ import Body from './Components/Body'
 import Shop from './Components/Shop'
 import FeaturesProducts from './Components/FeaturesProducts'
 import Reviews from './Components/Reviews'
+import Footer from './Components/Footer'
 
 
 
@@ -85,6 +86,7 @@ function App() {
         addToCart={handleAddToCart} 
         />
       <Reviews/>
+      <Footer />
     </>
   )
 }
