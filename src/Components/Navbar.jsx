@@ -19,22 +19,19 @@ function Navbar({ openNavBar, setOpenNavbar }) {
     transition: { duration: 0.3, ease: "easeInOut" },
   };
 
-  // ✅ Centralized Nav Config
+
   const navItems = [
     { name: "Home", href: "/" },
     {
       name: "Shop",
       dropdown: [
-        "full width",
-        "shop left sidebar",
-        "shop right side bar",
         "cart",
         "checkout",
       ],
     },
-    { name: "Blog", href: "/blog" },
+    { name: "Blog", href: "#" },
     { name: "About Us", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contact Us", href: "#" },
     {
       name: "Pages",
       dropdown: ["account", "wishlist", "terms and conditions", "faq", "404"],
@@ -97,17 +94,19 @@ function Navbar({ openNavBar, setOpenNavbar }) {
         </div>
 
         {/* Mobile: Logo */}
+      <div className="flex justify-between items-center w-11/12 mx-auto"> 
         <div className="lg:hidden">
-          <a href="#">
+          <a href="/">
             <img className="w-36" src={logo} alt="Sayara Logo" />
           </a>
         </div>
 
-        {/* Mobile: Toggle Button */}
-        <button className="lg:hidden" onClick={() => setOpenNavbar(true)}>
-          <IoReorderThreeOutline className="text-5xl text-zinc-500" />
-        </button>
-      </div>
+          {/* Mobile: Toggle Button */}
+          <button className="lg:hidden" onClick={() => setOpenNavbar(true)}>
+            <IoReorderThreeOutline className="text-5xl text-zinc-500" />
+          </button>
+        </div>
+      </div>  
 
       {/* ✅ Mobile Nav Iteration */}
       <AnimatePresence>

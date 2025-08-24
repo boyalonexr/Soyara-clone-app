@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
+
 import LoadingScreen from './Components/LoadingScreen'
 import Header from './Components/Header'
 import Navbar from './Components/Navbar'
@@ -9,6 +11,7 @@ import FeaturesProducts from './Components/FeaturesProducts'
 import Reviews from './Components/Reviews'
 import Footer from './Components/Footer'
 
+import About from './Components/About'
 
 
 function App() {
@@ -22,30 +25,30 @@ function App() {
   })
 
 
-  useEffect(()=> {
-    setTimeout(()=> setLoading(false), 4000);
-  }, [])
+useEffect(()=> {
+  setTimeout(()=> setLoading(false), 4000);
+}, [])
 
-  useEffect(() => {
-    if (openNavBar || activePopup) {
-      document.documentElement.classList.add('no-scroll');
-    } else {
-      document.documentElement.classList.remove('no-scroll');
-    }
-    return () => {
-      document.documentElement.classList.remove('no-scroll');
-    };
-  }, [openNavBar || activePopup]);
+useEffect(() => {
+  if (openNavBar || activePopup) {
+    document.documentElement.classList.add('no-scroll');
+  } else {
+    document.documentElement.classList.remove('no-scroll');
+  }
+  return () => {
+    document.documentElement.classList.remove('no-scroll');
+  };
+}, [openNavBar || activePopup]);
 
-  useEffect(() => {
+useEffect(() => {
   if (!loading) {
     alert("⚠️ This website is still in development. Some bugs may be present.");
   }
 }, [loading]);
 
-      useEffect(() => {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      }, [cartItems])
+useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}, [cartItems])
 
     const handleAddToCart = (product => {
           setCartItems((prev) => {
@@ -71,7 +74,7 @@ function App() {
 
   return (
     loading ? <LoadingScreen /> :
-    <>
+    <Router>
       <Header 
         activePopup={activePopup} 
         setActivePopup={setActivePopup}
@@ -80,14 +83,25 @@ function App() {
         handleRemoveFromCart={handleRemoveFromCart}
         />
       <Navbar openNavBar={openNavBar} setOpenNavbar={setOpenNavbar} />
-      <Body />
-      <Shop />
-      <FeaturesProducts
-        addToCart={handleAddToCart} 
-        />
-      <Reviews/>
+
+      <Routes>
+        <Route path='/' element={
+          <>
+            <Body />
+            <Shop />
+            <FeaturesProducts
+              addToCart={handleAddToCart} 
+              />
+            <Reviews/>
+          </>
+        }/>
+
+        <Route path='/about' element={<About />} />
+      </Routes>
+
       <Footer />
-    </>
+
+    </Router>
   )
 }
 

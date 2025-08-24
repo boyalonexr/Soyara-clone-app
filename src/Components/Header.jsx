@@ -16,9 +16,11 @@ const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemov
     <header className='gap-y-2 flex-wrap p-2 md:p-4 border border-b-zinc-400'>
       <div className='flex justify-between  w-11/12 md:w-[85%] mx-auto lg:w-[92%]'>
       
-     <div className='hidden lg:block  w-[70%]'> 
+     <div className='hidden lg:block w-[70%]'> 
       <div className=' flex gap-x-6 items-center w-full'>
-        <img className='w-[33%]' src={sayaraLogo} alt="" />
+        <a href="/" className='W-[33%]'>
+          <img src={sayaraLogo} alt="" />
+        </a>
 
         <div className='relative text-zinc-500 w-full'>
           <input className='border border-gray-300 focus:outline-none w-full rounded-full pl-6 py-3 p-2' type="text" placeholder='Search' />
