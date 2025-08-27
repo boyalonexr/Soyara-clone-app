@@ -168,9 +168,9 @@ const handlePrev = () => {
               const offset = info.offset.x;
               const velocity = info.velocity.x;
 
-              if (offset < -50 || velocity < -500) {
+              if ((offset < -50 || velocity < -500) && currentIndex < testimonials.length - 1) {
                 handleNext();
-              } else if (offset > 50 || velocity > 500) {
+              } else if ((offset > 50 || velocity > 500) && currentIndex > 0 ) {
                 handlePrev();
               }
             }}
