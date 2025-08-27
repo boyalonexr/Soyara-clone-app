@@ -152,8 +152,7 @@ const handlePrev = () => {
   {/* IMAGE SECTION (swaps instead of sliding) */}
         <div className="w-full md:w-1/3 flex justify-center">
           <img
-            key={currentIndex} // this forces fade re-render
-            className="rounded-lg w-2/3 md:w-full opacity-0 animate-fade-in"
+            className="rounded-lg w-2/3 md:w-full"
             src={testimonials[currentIndex].image}
             alt={testimonials[currentIndex].name}
           />
