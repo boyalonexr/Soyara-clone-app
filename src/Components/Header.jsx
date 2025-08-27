@@ -19,7 +19,7 @@ const Header = ({ activePopup, setActivePopup, cartItems, cartTotal, handleRemov
      <div className='hidden lg:block w-[70%]'> 
       <div className=' flex gap-x-6 items-center w-full'>
         <a href="/" className='W-[33%]'>
-          <img src={sayaraLogo} alt="" />
+          <img src={sayaraLogo} alt="sayaraLogo" />
         </a>
 
         <div className='relative text-zinc-500 w-full'>
