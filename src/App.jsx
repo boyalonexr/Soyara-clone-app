@@ -40,11 +40,6 @@ useEffect(() => {
   };
 }, [openNavBar || activePopup]);
 
-useEffect(() => {
-  if (!loading) {
-    alert("⚠️ This website is still in development. Some bugs may be present.");
-  }
-}, [loading]);
 
 useEffect(() => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
